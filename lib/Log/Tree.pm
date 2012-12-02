@@ -103,7 +103,7 @@ has 'syslog' => (
 
 has 'config' => (
     'is'    => 'rw',
-    'isa'   => 'Config::Tree',
+    'isa'   => 'Config::Yak',
     'required' => 0,
     'trigger' => \&_set_config,
 );
