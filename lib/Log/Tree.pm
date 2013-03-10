@@ -15,7 +15,7 @@ use namespace::autoclean;
 use English qw( -no_match_vars );
 use Log::Dispatch;
 use Log::Dispatch::Screen;
-use Data::Tree;
+use Data::Tree '0.16';
 use IO::Interactive qw();
 
 has 'dispatcher' => (
