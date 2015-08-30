@@ -1,5 +1,8 @@
 Revision history for Log-Tree
 
+0.17  2015-08-30
+      Add suffix method.
+
 0.16  2013-12-04
       Add logging to stdout in non-interactive mode.
 

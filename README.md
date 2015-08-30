@@ -1,31 +1,73 @@
-This is the README file for Log-Tree,
-lightweight but highly configurable logging class.
+# NAME
 
-## Description
+Log::Tree - Lightyweight logging w/ a tree based verbosity configuration
+similar to Log4perl.
 
-DISTRIBUTION provides a lightweight but highly configurable logging class
+# SYNOPSIS
 
-## Installation
+    use Log::Tree;
 
-This package uses Dist::Zilla.
+    my $logger = Log::Tree::->new('foo');
+    ...
 
-Use
+Only mandatory attirbute. Used as the syslog faclity and to auto-construct a suiteable
+filename for logging to file.
 
-dzil build
+This method is usually not needed from by callers but may be in some rare ocasions
+that's why it's made part of the public API. It just adds the passed data to the
+internal buffer w/o logging it in the usual ways.
 
-to create a release tarball which can be
-unpacked and installed like any other EUMM
-distribution.
+This method clears the internal log buffer.
 
-perl Makefile.PL
+This method should be called after it has been fork()ed to clear the internal
+log buffer.
 
-make
+Retrieve those entries from the buffer that are gte the given severity.
 
-make test
+Log a message. Takes a hash containing at least "message" and "level".
 
-make install
+Call on instatiation to set this class up.
 
-## Documentation
+Translates a numeric level to severity string.
 
-Please see perldoc Log::Tree.
+Translates a severity string to a numeric level.
 
+# POD ERRORS
+
+Hey! **The above document had some coding errors, which are explained below:**
+
+- Around line 13:
+
+    Unknown directive: =attr
+
+- Around line 18:
+
+    Unknown directive: =method
+
+- Around line 24:
+
+    Unknown directive: =method
+
+- Around line 28:
+
+    Unknown directive: =method
+
+- Around line 33:
+
+    Unknown directive: =method
+
+- Around line 37:
+
+    Unknown directive: =method
+
+- Around line 41:
+
+    Unknown directive: =method
+
+- Around line 45:
+
+    Unknown directive: =method
+
+- Around line 49:
+
+    Unknown directive: =method

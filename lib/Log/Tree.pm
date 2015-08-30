@@ -74,6 +74,12 @@ has 'prefix' => (
     'default' => q{},
 );
 
+has 'suffix' => (
+    'is'      => 'rw',
+    'isa'     => 'Str',
+    'default' => q{},
+);
+
 has 'verbosity' => (
     'is'      => 'rw',
     'isa'     => 'Int',
@@ -499,7 +505,14 @@ sub log {
         $mon++;
         $params_disp{'message'} = sprintf( '%04i.%02i.%02i-%02i:%02i:%02i', $year, $mon, $mday, $hour, $min, $sec ) . "\t" . $params_disp{'message'};
     }
+    
+    # append a user-supplied suffix
+    if ( $self->suffix() ) {
+        $params_disp{'message'} = $params_disp{'message'} . "\t" . $self->suffix();
+    }
+
     $params_disp{'message'} .= "\n";
+
     return $self->dispatcher()->log(%params_disp);
 }
 
