@@ -16,7 +16,7 @@ use English qw( -no_match_vars );
 use Log::Dispatch;
 use Log::Dispatch::Screen;
 use Data::Tree '0.16';
-use IO::Interactive qw();
+use IO::Interactive::Tiny qw();
 
 has 'dispatcher' => (
     'is'       => 'ro',
@@ -331,7 +331,7 @@ sub _init_dispatcher {
     my $log = Log::Dispatch::->new();
 
     # only log to screen if running interactively
-    if(IO::Interactive::is_interactive() || $ENV{'LOG_TREE_STDOUT'}) {
+    if(IO::Interactive::Tiny::is_interactive() || $ENV{'LOG_TREE_STDOUT'}) {
         $log->add(
             Log::Dispatch::Screen::->new(
                 name      => 'screen',
